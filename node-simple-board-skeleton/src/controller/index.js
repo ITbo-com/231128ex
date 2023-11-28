@@ -1,0 +1,11 @@
+const { Router } = require('express');
+const ctrl = require('./ctrl');
+const article = require('./article');
+const auth = require('./auth');
+const router = Router();
+router.get('/', ctrl.indexPage);
+router.get('/articles/page/:page(\\d+)', ctrl.listArticle);
+router.get('/articles', ctrl.latestArticle);
+router.use('/article', article);
+router.use('/auth', auth);
+module.exports = router;
